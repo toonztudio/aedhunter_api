@@ -1,0 +1,15 @@
+torch
+torchvision
+prefetch_generator
+pyyaml
+yacs
+scipy
+tqdm
+opencv-python
+matplotlib
+pandas
+fastapi 
+uvicorn
+python-multipart
+pillow
+certifi
