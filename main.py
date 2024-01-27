@@ -71,6 +71,11 @@ class KeywordRequest(BaseModel):
     num: int
 
 
+@app.get("/")
+async def root():
+    return {"message": "ok"}
+
+
 @app.post("/search")
 async def search_by_kw(request_data: KeywordRequest):
     kw = request_data.kw

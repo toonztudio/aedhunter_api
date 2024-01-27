@@ -335,7 +335,7 @@
         "kind": 6,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "class KeywordRequest(BaseModel):\n    kw: List[str]\n    num: int\n@app.post(\"/search\")\nasync def search_by_kw(request_data: KeywordRequest):\n    kw = request_data.kw\n    num = request_data.num\n    all_data = []\n    for keyword in kw:\n        conn = http.client.HTTPSConnection(\"google.serper.dev\")",
+        "peekOfCode": "class KeywordRequest(BaseModel):\n    kw: List[str]\n    num: int\n@app.get(\"/\")\nasync def root():\n    return {\"message\": \"ok\"}\n@app.post(\"/search\")\nasync def search_by_kw(request_data: KeywordRequest):\n    kw = request_data.kw\n    num = request_data.num",
         "detail": "main",
         "documentation": {}
     },
