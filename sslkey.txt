@@ -1,0 +1,2 @@
+Certificate is saved at: /etc/letsencrypt/live/rndch.online/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/rndch.online/privkey.pem
