@@ -102,8 +102,6 @@ async def search_by_kw(request_data: KeywordRequest):
         response_data = json.loads(data)
         images = response_data.get("images", [])
 
-        processed_images = []
-
         for image in images:
             try:
                 # Get the image from the URL
