@@ -133,7 +133,7 @@ async def search_by_kw(request_data: KeywordRequest):
                 first_row_json = detect_res_df.iloc[0].to_json(orient="records")
                 first_row_json = json.loads(first_row_json)
 
-                processed_images.append(
+                all_data.append(
                     {
                         "url": image["imageUrl"],
                         "confidence": first_row_json[4],
@@ -147,7 +147,6 @@ async def search_by_kw(request_data: KeywordRequest):
                         "keyword": keyword,
                     }
                 )
-                all_data.append(processed_images)
             except Exception as e:
                 print(e)
 
