@@ -362,7 +362,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "model = get_yolov5()\nssl._create_default_https_context = ssl._create_unverified_context\napp = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image\n                    and return image and json result\"\"\",\n    version=\"0.0.1\",\n)\norigins = [\"*\"]\napp.add_middleware(",
+        "peekOfCode": "model = get_yolov5()\nssl._create_default_https_context = ssl._create_unverified_context\napp = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image\n                    and return image and json result\"\"\",\n    version=\"0.0.1\",\n)\nssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)\nssl_context.load_cert_chain(",
         "detail": "main",
         "documentation": {}
     },
@@ -371,7 +371,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "ssl._create_default_https_context = ssl._create_unverified_context\napp = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image\n                    and return image and json result\"\"\",\n    version=\"0.0.1\",\n)\norigins = [\"*\"]\napp.add_middleware(\n    CORSMiddleware,",
+        "peekOfCode": "ssl._create_default_https_context = ssl._create_unverified_context\napp = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image\n                    and return image and json result\"\"\",\n    version=\"0.0.1\",\n)\nssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)\nssl_context.load_cert_chain(\n    \"/etc/ssl/certs/fullchain.pem\", keyfile=\"/etc/ssl/private/privkey.pem\"",
         "detail": "main",
         "documentation": {}
     },
@@ -380,7 +380,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image\n                    and return image and json result\"\"\",\n    version=\"0.0.1\",\n)\norigins = [\"*\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,",
+        "peekOfCode": "app = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image\n                    and return image and json result\"\"\",\n    version=\"0.0.1\",\n)\nssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)\nssl_context.load_cert_chain(\n    \"/etc/ssl/certs/fullchain.pem\", keyfile=\"/etc/ssl/private/privkey.pem\"\n)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)\nssl_context.load_cert_chain(\n    \"/etc/ssl/certs/fullchain.pem\", keyfile=\"/etc/ssl/private/privkey.pem\"\n)\norigins = [\"*\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],",
         "detail": "main",
         "documentation": {}
     },
