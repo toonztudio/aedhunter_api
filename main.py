@@ -161,4 +161,9 @@ async def search_by_kw(request_data: KeywordRequest):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8000,
+        ssl_context=("/etc/ssl/certs/fullchain.pem", "/etc/ssl/private/privkey.pem"),
+    )
