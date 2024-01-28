@@ -344,7 +344,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def get_yolov5():\n    model = torch.hub.load(\"ultralytics/yolov5\", \"custom\", path=\"best.pt\")\n    model.conf = 0.01\n    # model.conf = 0.5\n    return model\nmodel = get_yolov5()\nssl._create_default_https_context = ssl._create_unverified_context\napp = FastAPI(\n    title=\"Custom YOLOV5 Machine Learning API\",\n    description=\"\"\"Obtain object value out of image",
+        "peekOfCode": "def get_yolov5():\n    model = torch.hub.load(\n        \"ultralytics/yolov5\", \"custom\", path=\"best.pt\", trust_repo=False\n    )\n    model.conf = 0.01\n    # model.conf = 0.5\n    return model\nmodel = get_yolov5()\nssl._create_default_https_context = ssl._create_unverified_context\napp = FastAPI(",
         "detail": "main",
         "documentation": {}
     },

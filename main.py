@@ -17,7 +17,9 @@ import uvicorn
 
 
 def get_yolov5():
-    model = torch.hub.load("ultralytics/yolov5", "custom", path="best.pt")
+    model = torch.hub.load(
+        "ultralytics/yolov5", "custom", path="best.pt", trust_repo=False
+    )
     model.conf = 0.01
     # model.conf = 0.5
     return model
